@@ -1,3 +1,4 @@
+print("THis is the blood_calculator module and python calls it {}".format(__name__))
 def  interface():
     print("Blood Test Analysis")
     keep_running = True
@@ -6,6 +7,7 @@ def  interface():
         print("Options:")
         print("1-HDL")
         print("2-LDL")
+        print("3- Total Cholesterol")
         print("9-Quit")
         choice = input("Enter your choice:")
         if choice == "9":
@@ -14,6 +16,9 @@ def  interface():
             HDL_driver()
         elif choice == "2":
             LDL_driver()
+        elif choice == "3":
+            total_cholesterol_driver()
+        
     return
 
 def accept_input(test_name):
@@ -60,6 +65,21 @@ def LDL_driver():
     print_result("LDL",LDL_value,classification)
 
 
+def check_total_cholesterol(total_value):
+    if total_value < 200:
+        answer = "Normal"
+    elif 240 > total_value >= 200:
+        answer = "Borderline High"
+    else: 
+        answer = "High"
+    return answer
+
+def total_cholesterol_driver():
+    total_value = accept_input("Total Cholesterol")
+    classification = check_total_cholesterol(total_value)
+    print_result("Total CHolesterol", total_value, classification)
+    
 
 
-interface()
+if __name__ == "__main__":
+    interface()
