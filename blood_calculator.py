@@ -17,7 +17,7 @@ def  interface():
         elif choice == "2":
             LDL_driver()
         elif choice == "3":
-            TotalChol_driver()
+            total_cholesterol_driver()
         
     return
 
@@ -65,10 +65,10 @@ def LDL_driver():
     print_result("LDL",LDL_value,classification)
 
 
-def check_cholesterol(total_value):
-    if LDL_value + HDL_value < 200:
+def check_total_cholesterol(total_value):
+    if total_value < 200:
         answer = "Normal"
-    elif 240 > LDL_value + HDL_value >= 200:
+    elif 240 > total_value >= 200:
         answer = "Borderline High"
     else: 
         answer = "High"
